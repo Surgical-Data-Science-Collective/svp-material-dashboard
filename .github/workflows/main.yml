@@ -28,7 +28,7 @@ jobs:
         # Here, use the b2 command-line tool to upload your assets. 
         # You might want to adapt this step depending on your folder structure.
         b2 authorize-account ${{ secrets.B2_ACCOUNT_ID }} ${{ secrets.B2_APPLICATION_KEY }}
-        b2 sync --delete --replaceNewer dist/ b2://YOUR_BUCKET_NAME/path/
+        b2 sync --delete --replaceNewer dist/ b2://svp-dev-front-end/fe-dev/
 
     - name: Invalidate Fastly CDN cache
       run: |
@@ -37,5 +37,3 @@ jobs:
         curl -X POST "https://api.fastly.com/service/${{ secrets.FASTLY_SERVICE_ID }}/purge_all" \
              -H "Fastly-Key: ${{ secrets.FASTLY_API_KEY }}" \
              -H "Accept: application/json"
-
-             
