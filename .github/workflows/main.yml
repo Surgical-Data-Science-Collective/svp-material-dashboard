@@ -37,3 +37,5 @@ jobs:
         curl -X POST "https://api.fastly.com/service/${{ secrets.FASTLY_SERVICE_ID }}/purge_all" \
              -H "Fastly-Key: ${{ secrets.FASTLY_API_KEY }}" \
              -H "Accept: application/json"
+
+             
